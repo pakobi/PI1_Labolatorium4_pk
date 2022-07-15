@@ -1,0 +1,29 @@
+<h1>Lista autorów</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->autorzy as $ks): ?>
+        <tr>
+            <td><?= $ks->id ?></td>
+            <td><?= $ks->imie ?></td>
+            <td><?= $ks->nazwisko ?></td>
+            <td>
+                <a href="<?= $this->url('autorzy', ['action' => 'informacje', 'id' => $ks->id]) ?>"
+                   title="informacje o autorze"><i class="fas fa-glasses"></i></a>
+                <a href="<?= $this->url('autorzy', ['action' => 'edytuj', 'id' => $ks->id]) ?>" title="edytuj rekord"><i
+                            class="fas fa-edit"></i></a>
+                <a href="<?= $this->url('autorzy', ['action' => 'usun', 'id' => $ks->id]) ?>"
+                   onclick="return confirm('Are you sure?');" title="usuń rekord"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
